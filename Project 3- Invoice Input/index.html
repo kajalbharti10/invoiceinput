@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Input</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h4 class="heading">Invoice Details</h4>
+        <div class="header">
+            <div class="header-left">
+                <div class="logo">
+                    <img src="logo.jpeg" alt="logo">
+                </div>
+                <div class="Company">
+                    <h1>Kryptaroid</h1>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="number">
+                    <div class="date">
+                        <label for="date">Invoice Date:</label>
+                        <input type="date" id="date" name="date" alt="date">
+                    </div>
+                    <div class="gst_number">
+                        <label for="gst_number">GST NO:</label>
+                        <input type="text" id="gst_number" name="gst_number">
+                    </div>
+                    <div class="invoice_number">
+                        <label for="invoice_number">INVOICE NO:</label>
+                        <input type="text" id="invoice_number" name="invoice_number">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="billing-info">
+            <div class="seller">
+                <h5>Seller / Sold By:</h5>
+                <p>Kryptaroid Digital Solutions</p>
+                <p>Bye lane 1, Sonarpur-Kheyadaha Rd, Rajpur Sonarpur</p>
+                <p>Kolkata, West Bengal 700150</p>
+                <p>+91 XXXXXXXXXX </p>
+                <p>INDIA</p>
+            </div>
+            <div class="to">
+                <div class="to-header">
+                    <h5>Bill To: <span class="required">*</span></h5>
+                </div>
+                <div class="first">
+                    <h6>Service Purchase Details: </h6>
+                    <div class="icon">
+                        <ion-icon name="pencil-outline"></ion-icon>
+                        <ion-icon name="menu-outline"></ion-icon>
+                    </div>
+                </div>
+                <div class="bill">
+                    <div class="input">
+                        <input type="text" id="name" class="name" placeholder="Client name">
+                        <input type="text" id="add1" class="add1" placeholder="Address 1">
+                        <input type="text" id="add2" class="add2" placeholder="Address 2">
+                        <select id="country-select" name="country" class="country">
+                            <option value="">Country</option>
+                            <option value="US">United States</option>
+                            <option value="UK">United Kingdom</option>
+                            <option value="CA">Canada</option>
+                            <option value="AU">Australia</option>
+                            <option value="IN">India</option>
+                        </select>
+                        <select id="state-select" name="state" class="state">
+                            <option value="">State</option>
+                        </select>
+                        <select id="city-select" name="city" class="city">
+                            <option value="">City</option>
+                        </select>
+                        <input type="number" id="pincode" name="pincode" placeholder="Pincode" class="pincode">
+                        <select id="std" name="std" class="std">
+                            <option value="">+</option>
+                        </select>
+                        <input type="number" id="contact" name="contact" placeholder="Contact Number" class="contact">
+                        <input type="number" id="alternate" name="alternate" placeholder="Alternate Number" class="alternate">
+                    </div>
+                    <div class="button">
+                        <button class="clear">Clear</button>
+                        <button class="save">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="table">
+            <table>
+                <tr>
+                    <th>SL NO</th>
+                    <th>Description/Items</th>
+                    <th>Quantity</th>
+                    <th>HSN</th>
+                    <th>GST</th>
+                    <th>Amount</th>
+                </tr>
+                <tr>
+                    <td><input type="number" id="serial" name="serial no"></td>
+                    <td><input type="text" id="description" name="description"></td>
+                    <td><input type="number" id="quantity" name="quantity"></td>
+                    <td><input type="text" id="HSN" name="HSN"></td>
+                    <td><input type="number" id="gst" name="gst"></td>
+                    <td><input type="number" id="amount" name="amount"></td>
+                </tr>
+            </table>
+            <div class="add">
+                <button class="add-button">+ Add Items</button>
+            </div>
+        </div>
+        <div class="terms">
+            <h3>Terms & Conditions:</h3>
+            <ol>
+                <li>Please pay within 15 days from the date of invoice, overdue interest @14% will be charged on delayed payments.</li>
+                <li>Please quote invoice number when remitting funds.</li>
+            </ol>
+        </div>
+        <div class="service">
+            <div class="payment-signature-container">
+                <div class="payment-status">
+                    <h3>Service Purchase Update:<span class="required">*</span></h3>
+                    <form id="payment-form">
+                        <label><input type="radio" name="payment" value="fully-paid" checked> Fully Paid</label>
+                        <label><input type="radio" name="payment" value="fully-due"> Fully Due</label>
+                        <label><input type="radio" name="payment" value="partially-paid"> Partially Paid</label>
+                    </form>
+                </div>
+        
+                <div class="signature-section">
+                    <div class="signature-upload">
+                        <label for="signature">Signature <span class="required">*</span></label>
+                        <div class="upload-container">
+                            <button class="upload-btn" onclick="document.getElementById('fileUpload1').click()">Choose file</button>
+                            <input type="file" id="fileUpload1" name="fileUpload1" accept="image/*" style="display:none" onchange="document.getElementById('fileName1').textContent = this.files[0].name">
+                            <span id="fileName1" class="file-name">No file chosen</span>
+                        </div>
+                    </div>
+                    <div class="company-seal-upload">
+                        <label for="company-seal">Company seal <span class="required">*</span></label>
+                        <div class="upload-container">
+                            <button class="upload-btn" onclick="document.getElementById('fileUpload2').click()">Choose file</button>
+                            <input type="file" id="fileUpload2" name="fileUpload2" accept="image/*" style="display:none" onchange="document.getElementById('fileName2').textContent = this.files[0].name">
+                            <span id="fileName2" class="file-name">No file chosen</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="file-format-note">please ensure file format is following types, .pdf, .doc, .docx.</p>
+        </div>
+        <div class="agreement">
+            <label>
+                <input type="checkbox" required>
+                I agree <span class="required">*</span>
+            </label>
+        </div>
+        <div class="actions">
+            <button id="preview-btn">Preview</button>
+            <button id="print-btn"><i class="print-icon"><ion-icon name="print"></ion-icon></i> Print / Save As</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
